@@ -4,14 +4,14 @@ var quizController = require('../controllers/quiz_controller');
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'Proyecto QUIZ' });
+  res.render('index', { title: 'Proyecto QUIZ', errors: [] });
 });
 // Autoload de comandos con :quizId
 router.param('quizId', quizController.load); 
 
 /*GET Author page*/
 router.get('/author', function(req, res) {
-   res.render('author', { autor: 'Fatima García' });
+	res.render('author', { autor: 'Fatima Garcia', errors: []});
 });
 
 /*GET PREGUNTAS / RESPUESTAS*/
