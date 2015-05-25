@@ -15,6 +15,13 @@ exports.show = function(req, res) {
    res.render('quizes/show', { quiz: quiz});
  })
 };
+
+// GET /busqueda
+exports.busqueda = function(req, res){
+   models.Quiz.findAll().then(function(quizes) {
+    res.render('quizes/busqueda', {quizes: quizes, buscar: req.query.busqueda});
+   })
+};
 // GET /quizes/:id/answer
 exports.answer = function(req, res) {
  models.Quiz.find(req.params.quizId).then(function(quiz) {

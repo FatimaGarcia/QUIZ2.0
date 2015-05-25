@@ -1,3 +1,3 @@
 Su respuesta es : <%= respuesta %><p>
-<a href="/quizes/<%= quiz.pregunta %>"> Intentelo otra vez </a>
+<a href="/quizes/<%= quiz.id %>"> Intentelo otra vez </a>
 
