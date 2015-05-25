@@ -6,7 +6,7 @@
     <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Bienvenido a <%= title %></p>
+	<p>El autor del juego es : <%= autor %></p>
+	<button><a href='/'>Volver</a></button>
   </body>
 </html>
