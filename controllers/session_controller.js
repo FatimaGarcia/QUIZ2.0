@@ -33,6 +33,7 @@ res.render('sessions/new', {errors: errors});
 
 // POST /login -- Crear la sesion si usuario se autentica
 exports.create = function(req, res) {
+
  var login = req.body.login;
  var password = req.body.password;
  var time = new Date();

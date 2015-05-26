@@ -1,0 +1,7 @@
+<h2>Estadísticas</h2>
+<p>Número de preguntas: <%=numPreg %></p>
+<p>Número de comentarios publicados: <%=numCom %></p>
+<p>Número medio de comentarios por pregunta: <%=media%></p>
+<p>Número de preguntas sin comentarios: </p>
+<p>Número de preguntas con comentarios: </p>
+
