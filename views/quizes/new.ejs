@@ -1,11 +1,13 @@
 
 Añadir pregunta: <p>
 
-<form method="post" action="/quizes/create" >
+<form method="post" action="/quizes/create" enctype="multipart/form-data" >
 	<label for="preg" class="rem">Pregunta:</label>
 	<input type="text" id="preg" name="quiz[pregunta]" placeholder="Escriba la pregunta"/> <p>
 	<label for="resp" class="rem">Respuesta:</label>
 	<input type="text" id="resp" name="quiz[respuesta]" placeholder="Escriba la respuesta"/> <p>
+	<label for="image" class="rem">Imagen:</label>
+<input type="file" accept="image/*" id="image" name="image"/><p>
 	<a href="/quizes"><button type="button">Cancelar</button></a>
 	<input type="submit" value="Guardar">
 </form>

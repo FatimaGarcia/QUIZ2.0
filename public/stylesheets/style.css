@@ -8,8 +8,8 @@ margin-bottom: 1px; color: black;}
 section > div { padding: 20px; }
 header, nav, section { background: #E0FFFF; text-align: center;}
 footer { background:  #E0FFFF; text-align: center;}
-nav span { margin: 0px 10px 0px 0px;}
+nav span { margin: 0px 10px 0px 0px;, width:100%; display:inline-block;}
 a{ color: #DB7093; text-decoration:none;}
 #ErrorMsgs { color: red; font-size: small}
 .right {float: right;}
-
+.quiz_img { height: 150px; float: left;}

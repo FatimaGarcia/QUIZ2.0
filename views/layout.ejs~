@@ -12,7 +12,7 @@
  <div id="page-wrap">
   <header class="main" id="h1">
     <%if(!session.user){%>
-    <span class="right"><a href="/user">Sign up</a>
+    <span class="right"><a href="/user">Sign up</a> - 
     <a href="/login">Login</a></span>
     <%}else{%>
     <span class="right"> <%=session.user.username%> <a href="/user/<%=session.user.id%>/edit">Settings</a> <a href="/logout">Logout</a></span>
@@ -23,6 +23,9 @@
   <nav class="main" id="n1" role="navigation">
    <span><a href="/">Inicio</a></span>
    <span><a href="/quizes">Preguntas</a></span>
+   <%if(session.user){%>
+    <span><a href="/user/<%=session.user.id%>/quizes">Mis Preguntas</a></span>
+   <%}%>
    <span><a href="/quizes/statistics">Estadísticas</a></span>
    <span><a href="/author">Créditos</a></span>
   </nav>
@@ -44,7 +47,8 @@
 
   <footer class="main" id="f1">
    <a href="http://es.wikipedia.org/wiki/Quiz">
-   ¿Que es un Quiz?</a>
+   ¿Que es un Quiz?</a><p></p>
+   <a href="https://github.com/FatimaGarcia/QUIZ2.0">Enlace a GitHub</a>
   </footer>
  </div>
 </body>
