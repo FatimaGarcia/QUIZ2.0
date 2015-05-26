@@ -9,6 +9,7 @@ exports.statistics = function(req, res){
 	     var preg_sin;   
 	     var cuenta = 0;
 	     var com = 0; 
+	     var contado = false;
 	     var i;
 	     for(i=0; i<comments.length; i++){
 		if(comments[i].publicado == true){
@@ -20,12 +21,15 @@ exports.statistics = function(req, res){
 	     var j; 
 	     var h;
 	     for(j=0; j<quizes.length; j++){
+		contado = false; 
 		for(h=0; h<comments.length; h++){
-			if(comments[h].QuizId == j){
-				if(comments[h].publicado == true){
-					com++;
-					break;
-				}
+			if(comments[h].QuizId == (j+1)){ 
+			   if(!contado){
+				if(comments[h].publicado){
+						contado = true;
+						com++;
+				}	
+			   }
 			}
 		}
 	    }
