@@ -1,4 +1,16 @@
 var models = require('../models/models.js');
+//MW que permite acciones solamente si el usuario objeto corresponde con el usuario logeado o si es cuenta admin
+exports.ownershipRequired = function(req, res, next){
+ var objUser = req.user.id;
+ var logUser = req.session.user.id;
+ var isAdmin = req.session.user.isAdmin;
+
+ if (isAdmin || objUser === logUser) {
+   next();
+ } else {
+   res.redirect('/');
+ }
+};
 
 // Autoload :id
 exports.load = function(req, res, next, userId) {
@@ -48,7 +60,7 @@ exports.new = function(req, res) {
 // POST /user
 exports.create = function(req, res) {
  var user = models.User.build( req.body.user );
-
+ var time = new Date();
  user
  .validate()
  .then(
@@ -60,7 +72,7 @@ exports.create = function(req, res) {
    .save({fields: ["username", "password"]})
    .then( function(){
 // crea la sesión para que el usuario acceda ya autenticado y redirige a /
-    req.session.user = {id:user.id, username:user.username};
+    req.session.user = {id:user.id, username:user.username, time: time};
     res.redirect('/');
    });
   }
