@@ -30,11 +30,35 @@ exports.load = function(req, res, next, quizId) {
  ).catch(function(error){next(error)});
 };
 // GET /quizes/question
-exports.index = function(req, res) {
-  models.Quiz.findAll().then(function(quizes) {
-     res.render('quizes/index.ejs', { quizes: quizes, errors: []});
+exports.index = function(req, res, next) { 
+  var options = {};
+  var esFav = {};
+  if(req.user){
+    options.where = {UserId: req.user.id}
   }
-).catch(function(error){next(error)})
+  if(req.user){
+  models.Favourites.findAll({ where: { 
+	UserId: Number(req.session.user.id) }}
+  ).then(function(favoritos) {
+         models.Quiz.findAll(options).then(function(quizes) {
+		var j; 
+		var h; 
+                for (j=0; j<quizes.length;j++) {
+ 			esFav[j] = "noFav";
+                     for (h=0; h<favoritos.length;h++) {
+ 			if (favoritos[h].QuizId === quizes[j].id) {
+					esFav[j] = "esFav";
+ 			}
+ 	  	     }
+		}
+ 	   res.render('quizes/index.ejs', { quizes: quizes, esFav: esFav, errors: []});
+         });
+ }).catch(function(error){next(error)});
+ } else {
+   models.Quiz.findAll().then(function(quizes){
+	res.render('quizes/index.ejs', { quizes: quizes, errors: []});	
+   }).catch(function(error){next(error)});
+ }
 };
 //GET /quizes/new
 exports.new = function (req, res) {

@@ -7,7 +7,7 @@ var commentController = require ('../controllers/comment_controller');
 var sessionController = require('../controllers/session_controller');
 var statisticController = require('../controllers/statistic_controller');
 var userController = require('../controllers/user_controller');
-
+var favouriteController = require('../controllers/favourite_controller');
 /* GET home page. */
 router.get('/', function(req, res) {
   res.render('index', { title: 'Proyecto QUIZ', errors: [] });
@@ -58,5 +58,9 @@ sessionController.loginRequired, commentController.ownershipRequired, commentCon
 /*GET /quizes/statistics.ejs*/
 router.get('/quizes/statistics', statisticController.statistics);
 
+/*GET /favourites */
+router.get('/user/:userId(\\d+)/favourites',sessionController.loginRequired, favouriteController.show);
+router.put('/user/:userId(\\d+)/favourites/:quizId(\\d+)', sessionController.loginRequired, favouriteController.marcado);
+router.delete('/user/:userId(\\d+)/favourites/:quizId(\\d+)', sessionController.loginRequired, favouriteController.destroy);
 
 module.exports = router;
