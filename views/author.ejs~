@@ -1,5 +1,5 @@
 <h2>Créditos</h2>
-La autora de este juego es : <%= autor %>
+ : <%= autor %>
 <div id="fotos"> 
   <div id="carlos">
     <img src="/images/carlos.jpeg">

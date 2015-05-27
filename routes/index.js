@@ -21,7 +21,7 @@ router.param('userId', userController.load);
 
 /*GET Author page*/
 router.get('/author', function(req, res) {
-	res.render('author', { autor: '', errors: []});
+	res.render('author', { autor: 'Fatima Garcia y Carlos Padilla', errors: []});
 });
 
 /*GET LOGIN/LOGOUT*/
