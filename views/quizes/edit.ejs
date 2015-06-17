@@ -8,6 +8,14 @@ Editar pregunta: <p>
 	<input type="text" id="resp" name="quiz[respuesta]" value="<%= 		quiz.respuesta %>"/> <p>
 	<label for="image" class="rem">Imagen:</label>
 	<input type="file" accept="image/*" id="image" name="image"/><p>
+<label for="categoria" >Categoría: </label>
+<select id="categoria" name="quiz[categoria]">
+	<option value="Otro" selected> Otro </option>
+	<option value="Humanidades" selected> Humanidades </option>
+	<option value="Tecnologia" selected> Tecnología </option>
+	<option value="Ciencia" selected> Ciencia </option>
+	<option value="Ocio" selected> Ocio </option>
+</select>
 	<a href="/quizes"><button type="button">Cancelar</button></a>
 	<input type="submit" value="Guardar">
 </form>

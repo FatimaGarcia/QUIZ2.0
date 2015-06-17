@@ -1,5 +1,5 @@
 <h2>Créditos</h2>
-Los autores de este juego son : <%= autor %>
+Los autores de este juego son : <%= autor %><p></p><p></p>
 <div id="fotos"> 
   <div id="carlos">
     <img src="/images/carlos.jpeg">

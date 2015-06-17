@@ -9,14 +9,16 @@
 	 <button type="submit" onClick="return confirm('Borrar: <%= quizes[i].pregunta %>');">Borrar</button>
 	   </form></td>	
         <%} %>
+	<% if(esFav[i] === "noFav"){ %>
          <td> <form method="post" action="/user/<%= session.user.id %>/favourites/<%= quizes[i].id %>?_method=put">
 	 <button type="submit" onClick="return confirm('¿Añadir favorito?');">Añadir Fav</button>
 	 </form></td>
-
+	<% } %> 
+	<% if(esFav[i] === "esFav"){ %>
 	 <td> <form method="post" action="/user/<%= session.user.id %>/favourites/<%= quizes[i].id %>?_method=delete">
 	<button type="submit" onClick="return confirm('¿Borrar favorito?');">Borrar Fav</button>
 	  </form></td>	
-
+	<% } %>
      <%}%>
 </tr>
 
